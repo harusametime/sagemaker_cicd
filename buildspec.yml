@@ -20,6 +20,7 @@ phases:
 
   pre_build:
     commands:
+      # - start-dockerd
       - ACCOUNT=$(aws sts get-caller-identity --query 'Account' --output text)
       - PREPROD_IMAGE="$ACCOUNT.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$ECR_REPO"
       - PR_NUM=$(echo $CODEBUILD_SOURCE_VERSION | grep -o '[0-9]\+')
@@ -106,8 +107,8 @@ phases:
         fi
     finally:
       # shut down remote gpu instance
-      - cleanup-gpu-instances
-      - cleanup-key-pairs
+      # - cleanup-gpu-instances
+      # - cleanup-key-pairs
 
       # remove ecr image
       - aws ecr batch-delete-image --repository-name $ECR_REPO --region $AWS_DEFAULT_REGION --image-ids imageTag=$CPU_TAG
