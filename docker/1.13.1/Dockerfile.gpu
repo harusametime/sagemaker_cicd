@@ -44,7 +44,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends --allow-unauthe
     rm /usr/lib/x86_64-linux-gnu/libnvparsers* && \
     rm -rf /var/lib/apt/lists/*
 
-RUN sudo apt install g++-4.9
+RUN apt install g++-4.9
 
 ###########################################################################
 # Horovod & its dependencies

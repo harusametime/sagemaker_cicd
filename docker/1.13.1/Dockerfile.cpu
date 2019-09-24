@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && add-apt-repository ppa:deadsnakes/ppa -y \
     && rm -rf /var/lib/apt/lists/*
 
-RUN sudo apt install g++-4.9
+RUN apt install g++-4.9
 
 # Install Open MPI
 RUN mkdir /tmp/openmpi && \
