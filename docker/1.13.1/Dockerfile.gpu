@@ -28,7 +28,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends --allow-unauthe
         wget \
         openssh-client \
         openssh-server \
-        build-essential && \
+        build-essential \
+	g++-4.9 && \
     # The 'apt-get install' of nvinfer-runtime-trt-repo-ubuntu1604-4.0.1-ga-cuda9.0
     # adds a new list which contains libnvinfer library, so it needs another
     # 'apt-get update' to retrieve that list before it can actually install the
@@ -44,7 +45,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends --allow-unauthe
     rm /usr/lib/x86_64-linux-gnu/libnvparsers* && \
     rm -rf /var/lib/apt/lists/*
 
-RUN apt install g++-4.9
 
 ###########################################################################
 # Horovod & its dependencies

@@ -8,11 +8,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     openssh-client \
     openssh-server \
     ca-certificates \
-    curl \
+    curl g++-4.9 \
     && add-apt-repository ppa:deadsnakes/ppa -y \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt install g++-4.9
 
 # Install Open MPI
 RUN mkdir /tmp/openmpi && \
